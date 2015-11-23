@@ -1,10 +1,9 @@
-#include <iostream>
 #include <string>
-#include <"Pontuacao.h">
-#include <"Financeiro.h">
-#include <"Data.h">
+#include "Pontuacao.h"
+#include "Financeiro.h"
+#include "Data.h"
 
-using string::std;
+using std::string;
 
 class Ciclo
 {
@@ -19,7 +18,7 @@ class Ciclo
     protected:
         Pontuacao pontos;
         Financeiro financ;
-        Data data
+        Data data;
 
     private:
         string periodo;
