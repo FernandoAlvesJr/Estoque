@@ -8,7 +8,7 @@ using std::string;
 class Ciclo
 {
     public:
-        Ciclo(const string & = "default");
+        Ciclo(const string & = "default", int = 1, int = 1, int = 1, float = 0, float = 0, int = 0 );
         Ciclo(const Ciclo &);
         virtual ~Ciclo();
         virtual void setPeriodo(const string &) = 0;
