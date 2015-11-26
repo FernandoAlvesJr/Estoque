@@ -13,14 +13,12 @@ class Ciclo
         virtual ~Ciclo();
         virtual void setPeriodo(const string &) = 0;
         virtual string getPeriodo() = 0;
-        string buscaPeriodo(const string &);
+        virtual void trocaPeriodo(const string &) = 0;
 
     protected:
         Pontuacao pontos;
         Financeiro financ;
         Data data;
-
-    private:
         string periodo;
 
 
