@@ -2,15 +2,15 @@
 
 using std::cout;
 
-Maquiagem::Maquiagem(const string &periodo , int dia, int mes, int ano, float precoCompra, float precoVenda, int pts, long codigo, const string &nome, const string &tipo, const string &cor)
-:Produto(periodo, dia, mes, ano, precoCompra, precoVenda, pts, codigo, nome)
+Maquiagem::Maquiagem(const string &finalid, const string &orig, long codigo, const string &nome, int pts, float pCompra, float pVenda, int dia, int mes, int ano, const string &tipo, const string &cor)
+:Circulante(finalid, orig, codigo, nome, pts, pCompra, pVenda, dia, mes, ano)
 {
     tipo != "" ? this->tipo = tipo : this->tipo = "tipo";
     cor != "" ? this->cor = cor : this->cor = "cor";
 }
 
 Maquiagem::Maquiagem(const Maquiagem &m)
-//:Produto(periodo, dia, mes, ano, precoCompra, precoVenda, pts, codigo, nome)
+:Circulante()
 {
     this->codigo = m.codigo;
     this->cor = m.cor;
@@ -19,32 +19,6 @@ Maquiagem::Maquiagem(const Maquiagem &m)
 Maquiagem::~Maquiagem()
 {
     //dtor
-}
-
-string Maquiagem::getPeriodo()
-{
-    return this->periodo;
-}
-
-void Maquiagem::setPeriodo(const string &periodo)
-{
-    periodo != "" ? this->periodo = periodo : this->periodo = "";
-}
-
-void Maquiagem::trocaPeriodo(const string &novoPeriodo)
-{
-    if (novoPeriodo == getPeriodo())
-    {
-        cout << "Periodo informado igual ao anterior\n";
-    }
-    else if (novoPeriodo == "")
-    {
-        cout << "Periodo informado invalido\n";
-    }
-    else
-    {
-        setPeriodo(novoPeriodo);
-    }
 }
 
 string Maquiagem::getTipo()
@@ -65,4 +39,22 @@ string Maquiagem::getCor()
 void Maquiagem::setCor(const string &cor)
 {
     cor != "" ? this->cor = cor : this->cor = "corMaquiagem";
+}
+
+void Maquiagem::mostrarInfo()
+{
+    cout << "\nCod: " << getCodigo();
+    cout << "\nNome: " << getNome();
+    cout << "\nTipo: " << this->tipo;
+    cout << "\nCor: " << this->cor;
+    cout << "\n Preco de Compra: R$ " << financ.getPrecoCompra();
+    cout << "\n Preco de Venda: R$ " << financ.getPrecoVenda();
+    cout << "\n Pontuacao: " << pontos.getPontos();
+    cout << "Data de Entrada: ";
+    data.MOSTRADATA();
+}
+
+void Maquiagem::mostrarOrigem()
+{
+    cout << "\nOrigem do Produto: " << getOrigem();
 }
