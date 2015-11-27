@@ -9,10 +9,11 @@ using std::string;
 class Insumo
 {
     public:
-        Insumo(const string & = "venda");
+        Insumo(const string & = "venda", const string & = "internet");
         virtual ~Insumo();
         virtual void mostrarInfo() = 0;
         virtual void mostrarOrigem() = 0;
+        string getOrigem();
 
     private:
         string finalidade;

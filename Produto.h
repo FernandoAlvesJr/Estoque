@@ -1,6 +1,7 @@
 #ifndef PRODUTO_H
 #define PRODUTO_H
 
+#include <vector>
 #include "Insumo.h"
 #include "Data.h"
 
