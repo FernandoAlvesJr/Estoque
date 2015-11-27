@@ -2,6 +2,9 @@
 #define PERFUMARIA_H
 
 #include "Circulante.h"
+#include <vector>
+
+using std::vector;
 
 class Perfumaria:public Circulante
 {
@@ -12,9 +15,16 @@ class Perfumaria:public Circulante
         virtual void mostrarInfo();
         virtual void mostrarOrigem();
 		string getGenero();
-		void setGenero(const string &gen);
+		void setGenero(const string &);
 		int getVolume();
-		void setVolume(int vol);
+		void setVolume(int);
+		int verificaPerfume(const string &);
+		void addGeneroPerfume(bool);
+		void limpaVetorGenero();
+
+
+    protected:
+        vector <bool> generos;
 
     private:
         string genero;

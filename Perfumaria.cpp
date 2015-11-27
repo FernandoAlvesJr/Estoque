@@ -33,6 +33,29 @@ void Perfumaria::setVolume(int vol)
     vol < 0 ? this->volume = 0 : this->volume = vol;
 }
 
+int Perfumaria::verificaPerfume(const string &gen)
+{
+    if (gen == "Masc")
+        return 0;
+    else if (gen == "Fem")
+        return 1;
+    else
+        cout << "\nNao foi possivel verificar o genero do perfume\n\n" ;
+        return 2;
+}
+
+void Perfumaria::addGeneroPerfume(bool gen)
+{
+    generos.push_back(0);
+    generos[generos.size()-1] = gen;
+
+}
+
+void Perfumaria::limpaVetorGenero()
+{
+    generos.clear();
+}
+
 void Perfumaria::mostrarInfo()
 {
     cout << "\nCod: " << getCodigo();

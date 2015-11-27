@@ -4,9 +4,6 @@
 #include "Pontuacao.h"
 #include "Financeiro.h"
 #include "Produto.h"
-#include <vector>
-
-using std::vector;
 
 class Circulante:public Produto
 {
@@ -24,7 +21,6 @@ class Circulante:public Produto
     protected:
         Pontuacao pontos;
         Financeiro financ;
-        vector <Circulante *> produtos;
 
     private:
         static int quantidade;
