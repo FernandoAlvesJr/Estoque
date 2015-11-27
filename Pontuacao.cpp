@@ -1,12 +1,38 @@
 #include "Pontuacao.h"
 
+using std::cout;
+using std::cin;
+
 int Pontuacao::totalPontos = 0;
 
-int Pontuacao::pontosPorVendas = 0;
+void Pontuacao::situacaoPontos()
+{
+    cout << "Pontuacao do periodo:\n\n Objetivo: " << MINPONTOSCICLO << " pontos\n";
+    cout << "Pontos alcancados: " << totalPontos;
+
+    if (totalPontos < MINPONTOSCICLO)
+    {
+        cout << "\n\nVoce somou "
+             << totalPontos
+             << " pontos. Faltam "
+             << MINPONTOSCICLO - totalPontos
+             << " para o objetivo do periodo\n\n";
+    }
+    else
+    {
+        cout << "\n\nParabens! Voce atingiu o objetivo.\n\n";
+    }
+}
 
 Pontuacao::Pontuacao(int pts)
+:pontos (pts)
 {
-    pts < 0 ? this->pontos = 0 : this->pontos = pts;
+
+}
+
+Pontuacao::Pontuacao(const Pontuacao &p)
+{
+    this->pontos = p.pontos;
 }
 
 Pontuacao::~Pontuacao()
@@ -21,10 +47,9 @@ int Pontuacao::getPontos()
 
 void Pontuacao::setPontos(int pts)
 {
-    if(pts >= 0)
+    if((pts >= 0)&&(pts != this->pontos))
     {
         this->pontos = pts;
-        somaPontos(pts);
     }
 }
 
@@ -33,13 +58,15 @@ void Pontuacao::somaPontos(int pts)
     this->totalPontos += pts;
 }
 
-void Pontuacao::vendaPontos(int pts)
+void Pontuacao::zeraPontos()
 {
-    this->pontosPorVendas += pts;
-    this->totalPontos -= pts;
-}
+    int a;
+    cout << "Tem certeza que deseja zerar a pontuacao do Periodo? (1 - sim ; 0 - nao): ";
+    cin >> a;
 
-int Pontuacao::pontosVendidos()
-{
-    return this->pontosPorVendas;
+    if (a == 1)
+        this->totalPontos = 0;
+    else
+        cout << "\nOperacao Cancelada!\n";
+
 }
