@@ -1,3 +1,6 @@
+#ifndef FINANCEIRO_H
+#define FINANCEIRO_H
+
 #include <iostream>
 
 class Financeiro
@@ -22,3 +25,5 @@ class Financeiro
         static float totalReceita;
         static float totalLucro;
 };
+
+#endif // FINANCEIRO_H
