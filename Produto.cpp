@@ -1,10 +1,15 @@
 #include "Produto.h"
 
-Produto::Produto(const string &periodo , int dia, int mes, int ano, float precoCompra, float precoVenda, int pts, long codigo, const string &nome)
-:Ciclo(periodo , dia, mes, ano, precoCompra, precoVenda, pts)
+Produto::Produto(const string &finalid, const string &orig, long codigo, const string &nome, int dia, int mes, int ano)
+:Insumo(finalid, orig), data(dia, mes, ano)
 {
 	codigo < 0 ? this->codigo = 0 : this->codigo = codigo;
 	nome == "" ? this->nome = "produto" : this->nome = nome;
+}
+
+Produto::~Produto()
+{
+
 }
 
 string Produto::getNome()
@@ -27,15 +32,14 @@ void Produto::setCodigo(long cod)
     cod < 0 ? this->codigo = 0 : this->codigo = cod;
 }
 
-void Produto::alteraCodigo(long cod)
+void Produto::alteraNome(const string &nome)
 {
-    this->codigo = cod;
+    nome != "" ? this->nome = nome : this->nome = this->nome;
 }
 
-void Produto::alteraProduto(long cod, const string &nome, const string &periodo)
+void Produto::alteraProduto(long cod, const string &nome)
 {
-    this->codigo = cod;
-    this->nome = nome;
-    this->periodo = periodo;
+    cod < 0 ? this->codigo = 0 : this->codigo = cod;
+    nome != "" ? this->nome = nome : this->nome = this->nome;
 }
 
