@@ -16,14 +16,15 @@ void cadastroMaquiagem();
 void cadastroPerfumaria();
 void cadastroAcessorioVenda();
 void cadastroAcessorio();
+void buscaProduto();
+void saidaProduto();
 
-vector <Maquiagem *> maq;
-vector <Perfumaria *> perf;
-vector <AcessoriosVenda *> acesVenda;
-vector <Acessorio *> acess;
+vector<Produto *>produtos;
+
 
 int main()
 {
+
     cout << "Programa gerenciador de Estoque" << endl;
 
     int escolha;
@@ -38,6 +39,12 @@ int main()
         case 1:
             menuCad();
             break;
+        case 2:
+            saidaProduto();
+            break;
+        case 3:
+            buscaProduto();
+            break;
         default:
             cout << "Codigo invalido" << endl;
         }
@@ -50,7 +57,7 @@ int main()
 int menuPrinc()
 {
     int sel;
-    cout << "Selecione a operacao desejada:\n" << endl;
+    cout << "\n\nSelecione a operacao desejada:\n" << endl;
     cout << "1 - Cadastro de Produto" << endl;
     cout << "2 - Saida de Produto" << endl;
     cout << "3 - Busca de Produto" << endl;
@@ -90,15 +97,14 @@ void menuCad()
             cadastroAcessorio();
             break;
         case 0:
-            cout << "Menu Principal" << endl;
             break;
         default:
             cout << "Codigo invalido\n" << endl;
     }
 
-    }while(sel != 0);
+    }while((sel < 0)||(sel > 4));
 
-    system("cls");
+   system("cls");
 
 }
 
@@ -133,11 +139,12 @@ void cadastroMaquiagem()
     cout << "Cor: ";
     cin >> cor;
 
-    maq.push_back(0);
-    maq[maq.size()-1] = new Maquiagem("venda",orig, cod, nome, pts, pCompra, pVenda, dia, mes, ano, tipo, cor);
+    produtos.push_back(0);
+    produtos[produtos.size()-1] = new Maquiagem("venda", orig, cod, nome, pts, pCompra, pVenda, dia, mes, ano, tipo, cor);
 
     cout << "Maquiagem Cadastrada\n\n";
     system("pause");
+    system("cls");
 }
 
 void cadastroPerfumaria()
@@ -171,11 +178,12 @@ void cadastroPerfumaria()
     cout << "Volume: ";
     cin >> vol;
 
-    perf.push_back(0);
-    perf[perf.size()-1] = new Perfumaria("venda",orig, cod, nome, pts, pCompra, pVenda, dia, mes, ano, genero, vol);
+    produtos.push_back(0);
+    produtos[produtos.size()-1] = new Perfumaria("venda",orig, cod, nome, pts, pCompra, pVenda, dia, mes, ano, genero, vol);
 
     cout << "Perfume Cadastrado\n\n";
     system("pause");
+    system("cls");
 }
 
 void cadastroAcessorioVenda()
@@ -209,14 +217,89 @@ void cadastroAcessorioVenda()
     cout << "Tamanho: ";
     cin >> tamanho;
 
-    acesVenda.push_back(0);
-    acesVenda[acesVenda.size()-1] = new AcessoriosVenda("venda",orig, cod, nome, pts, pCompra, pVenda, dia, mes, ano, linha, tamanho);
+    produtos.push_back(0);
+    produtos[produtos.size()-1] = new AcessoriosVenda("venda",orig, cod, nome, pts, pCompra, pVenda, dia, mes, ano, linha, tamanho);
 
     cout << "Acessorio a venda Cadastrado\n\n";
     system("pause");
+    system("cls");
 }
 
 void cadastroAcessorio()
 {
+    string orig, nome, tipo, tamanho;
+    long cod;
+    float pCompra;
+    int dia, mes, ano;
 
+    cout << "Origem: ";
+    cin >> orig;
+    cout << "Codigo: ";
+    cin >> cod;
+    cout << "Nome do Produto: ";
+    cin >> nome;
+    cout << "Preco de Compra: ";
+    cin >> pCompra;
+    cout << "Data:\n";
+    cout << "Dia: ";
+    cin >> dia;
+    cout << "Mes: ";
+    cin >> mes;
+    cout << "Ano: ";
+    cin >> ano;
+    cout << "Tipo: ";
+    cin >> tipo;
+    cout << "Tamanho: ";
+    cin >> tamanho;
+
+    produtos.push_back(0);
+    produtos[produtos.size()-1] = new Acessorio("venda",orig, cod, nome, dia, mes, ano, pCompra, 0, 0,  tipo, tamanho);
+
+    cout << "Acessorio Cadastrado\n\n";
+    system("pause");
+    system("cls");
+}
+
+void buscaProduto()
+{
+    long cod;
+    int a = 0;
+    cout << "Informe o Codigo do Produto para pesquisar: ";
+    cin >> cod;
+
+    for(int i=0; i<(int)produtos.size(); i++)
+    {
+        if (produtos[i]->getCodigo() == cod)
+        {
+            a++;
+        }
+    }
+
+    if (a == 0)
+        cout << "Produto nao foi encontrado no estoque" << endl;
+    else
+    {
+        cout << "Existem "
+             << a
+             << " unidades no estoque"
+             << endl;
+    }
+    system("pause");
+    system("cls");
+}
+
+void saidaProduto()
+{
+    long cod;
+    cout << "Informe o Codigo do Produto para pesquisar: ";
+    cin >> cod;
+
+    for (int i=0; i<(int)produtos.size(); i++)
+    {
+        if (produtos[i]->getCodigo() == cod)
+            produtos[i]->somaReceita();
+            break;
+    }
+
+    //circulantes[1]->financ.totalReceita += financ.getPrecoVenda();
 }

@@ -47,9 +47,9 @@ void AcessoriosVenda::mostrarInfo()
     cout << "\nNome: " << getNome();
     cout << "\nLinha: " << this->linha;
     cout << "\nTamanho: " << this->tamanho;
-    cout << "\n Preco de Compra: R$ " << financ.getPrecoCompra();
-    cout << "\n Preco de Venda: R$ " << financ.getPrecoVenda();
-    cout << "\n Pontuacao: " << pontos.getPontos();
+   // cout << "\n Preco de Compra: R$ " << financ.getPrecoCompra();
+    //cout << "\n Preco de Venda: R$ " << financ.getPrecoVenda();
+    //cout << "\n Pontuacao: " << pontos.getPontos();
     cout << "Data de Entrada: ";
     data.MOSTRADATA();
 }

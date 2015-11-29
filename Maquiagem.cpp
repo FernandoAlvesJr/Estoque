@@ -12,7 +12,7 @@ Maquiagem::Maquiagem(const string &finalid, const string &orig, long codigo, con
 Maquiagem::Maquiagem(const Maquiagem &m)
 :Circulante()
 {
-    this->codigo = m.codigo;
+    this->tipo = m.tipo;
     this->cor = m.cor;
 }
 

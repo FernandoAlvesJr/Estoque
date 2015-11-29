@@ -46,13 +46,3 @@ void Financeiro::somaLucro(float pCompra, float pVenda)
 {
     this->totalLucro += (pVenda - pCompra);
 }
-
-void Financeiro::MOSTRALUCRO()
-{
-    cout << "\n\nTotal de Lucro: R$ " << this->totalLucro << "\n" << endl;
-}
-
-void Financeiro::MOSTRARECEITA()
-{
-    cout << "\n\nTotal arrecadado de vendas: R$ " << this->totalReceita << "\n" << endl;
-}

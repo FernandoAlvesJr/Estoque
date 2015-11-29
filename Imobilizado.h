@@ -6,7 +6,7 @@
 class Imobilizado : public Produto
 {
     public:
-        Imobilizado(const string & = "venda" , const string & = "internet" , long = 0, const string & = "produto", int = 1, int = 1, int =2000);
+        Imobilizado(const string & = "venda" , const string & = "internet" , long = 0, const string & = "produto", int = 1, int = 1, int =2000, float = 0, float = 0, int = 0);
         virtual ~Imobilizado();
         virtual void mostrarInfo() = 0;
         virtual void mostrarOrigem() = 0;

@@ -15,11 +15,10 @@ class Financeiro
         void setPrecoVenda(float);
         void somaReceita(float);
         void somaLucro(float, float);
-        void MOSTRARECEITA();
-        void MOSTRALUCRO();
 
 
-    private:
+
+     protected:
         float precoCompra;
         float precoVenda;
         static float totalReceita;

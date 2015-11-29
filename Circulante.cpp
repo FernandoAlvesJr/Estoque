@@ -5,7 +5,7 @@ using std::cout;
 int Circulante::quantidade = 0;
 
 Circulante::Circulante(const string &finalid, const string &orig, long codigo, const string &nome, int pts, float pCompra, float pVenda, int dia, int mes, int ano)
-:Produto(finalid, orig, codigo, nome, dia, mes, ano), pontos(pts), financ(pCompra,pVenda)
+:Produto(finalid, orig, codigo, nome, dia, mes, ano, pCompra,pVenda, pts)
 {
     incrementaCirculante();
 }

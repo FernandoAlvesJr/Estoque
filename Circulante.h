@@ -1,9 +1,8 @@
 #ifndef CIRCULANTE_H
 #define CIRCULANTE_H
 
-#include "Pontuacao.h"
-#include "Financeiro.h"
 #include "Produto.h"
+
 
 class Circulante:public Produto
 {
@@ -17,10 +16,6 @@ class Circulante:public Produto
         void mostraQtdCirculante();
 
 
-
-    protected:
-        Pontuacao pontos;
-        Financeiro financ;
 
     private:
         static int quantidade;

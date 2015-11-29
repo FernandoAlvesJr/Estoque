@@ -1,7 +1,13 @@
 #include "Produto.h"
 
-Produto::Produto(const string &finalid, const string &orig, long codigo, const string &nome, int dia, int mes, int ano)
-:Insumo(finalid, orig), data(dia, mes, ano)
+float Produto::totalReceita = 0;
+float Produto::totalLucro = 0;
+
+using std::cout;
+using std::endl;
+
+Produto::Produto(const string &finalid, const string &orig, long codigo, const string &nome, int dia, int mes, int ano, float pCompra, float pVenda, int pts)
+:Insumo(finalid, orig), data(dia, mes, ano), financ(pCompra, pVenda), pontos(pts)
 {
 	codigo < 0 ? this->codigo = 0 : this->codigo = codigo;
 	nome == "" ? this->nome = "produto" : this->nome = nome;
@@ -43,3 +49,17 @@ void Produto::alteraProduto(long cod, const string &nome)
     nome != "" ? this->nome = nome : this->nome = this->nome;
 }
 
+void Produto::somaReceita()
+{
+    totalReceita = totalReceita + financ.getPrecoVenda();
+}
+
+void Produto::MOSTRALUCRO()
+{
+    cout << "\n\nTotal de Lucro: R$ " << totalLucro << "\n" << endl;
+}
+
+void Produto::MOSTRARECEITA()
+{
+    cout << "\n\nTotal arrecadado de vendas: R$ " << totalReceita << "\n" << endl;
+}

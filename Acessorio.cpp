@@ -2,8 +2,8 @@
 
 using std::cout;
 
-Acessorio::Acessorio(const string &finalid, const string &orig, long codigo, const string &nome, int dia, int mes, int ano, const string &tipo, const string &tamanho)
-:Imobilizado(finalid, orig, codigo, nome, dia, mes, ano)
+Acessorio::Acessorio(const string &finalid, const string &orig, long codigo, const string &nome, int dia, int mes, int ano, float pCompra, float pVenda, int pts, const string &tipo, const string &tamanho)
+:Imobilizado(finalid, orig, codigo, nome, dia, mes, ano, pCompra, pVenda, pts)
 {
     tipo != "" ? this->tipo = tipo : this->tipo = "tipo";
     tamanho != "" ? this->tamanho = tamanho : this->tamanho = "tamanho";
