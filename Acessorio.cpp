@@ -46,7 +46,7 @@ void Acessorio::mostrarInfo()
     cout << "\nNome: " << getNome();
     cout << "\nTipo: " << this->tipo;
     cout << "\nTamanho: " << this->tamanho;
-    cout << "Data de Entrada: ";
+    cout << "\nData de Entrada: ";
     data.MOSTRADATA();
 }
 

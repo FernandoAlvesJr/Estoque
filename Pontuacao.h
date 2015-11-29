@@ -11,14 +11,12 @@ class Pontuacao
         ~Pontuacao();
         int getPontos();
         void setPontos(int);
-        void somaPontos(int);
-        void zeraPontos();
+
         int pontosVendidos();
-        static void situacaoPontos();
+
     private:
         int pontos;
-        static int totalPontos;
-        const static int MINPONTOSCICLO = 600;
+
 };
 
 

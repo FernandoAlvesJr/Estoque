@@ -21,8 +21,11 @@ class Produto : public Insumo{
 		void alteraNome(const string &);
 		void alteraProduto(long, const string &);
 		void somaReceita();
-		void MOSTRARECEITA();
-        void MOSTRALUCRO();
+		void zeraReceita();
+		void MOSTRARECEITA() const;
+        void somaPontos();
+        void zeraPontos();
+        static void situacaoPontos();
 
 
 	protected:
@@ -34,7 +37,8 @@ class Produto : public Insumo{
         long codigo;
 		string nome;
 		static float totalReceita;
-		static float totalLucro;
+		static int totalPontos;
+        const static int MINPONTOSCICLO = 600;
 
 };
 

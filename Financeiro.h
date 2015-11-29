@@ -13,16 +13,12 @@ class Financeiro
         void setPrecoCompra(float);
         float getPrecoVenda();
         void setPrecoVenda(float);
-        void somaReceita(float);
-        void somaLucro(float, float);
-
 
 
      protected:
         float precoCompra;
         float precoVenda;
-        static float totalReceita;
-        static float totalLucro;
+
 };
 
 #endif // FINANCEIRO_H

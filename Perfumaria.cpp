@@ -65,7 +65,7 @@ void Perfumaria::mostrarInfo()
     cout << "\n Preco de Compra: R$ " << financ.getPrecoCompra();
     cout << "\n Preco de Venda: R$ " << financ.getPrecoVenda();
     cout << "\n Pontuacao: " << pontos.getPontos();
-    cout << "Data de Entrada: ";
+    cout << "\nData de Entrada: ";
     data.MOSTRADATA();
 }
 
